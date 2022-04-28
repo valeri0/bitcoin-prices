@@ -10,15 +10,15 @@ import java.util.stream.Collectors;
 
 public class LinearRegressionCalculator {
 
-    private List<Double> xList;
-    private List<Double> yList;
+    private List<Integer> xList;
+    private List<Integer> yList;
 
-    public LinearRegressionCalculator(List<Double> xList, List<Double> yList) {
+    public LinearRegressionCalculator(List<Integer> xList, List<Integer> yList) {
         this.xList = xList;
         this.yList = yList;
     }
 
-    public Double predictForValue(int predictForDependentVariable) {
+    public double predictForValue(int predictForDependentVariable) {
         if (xList.size() != yList.size())
             throw new IllegalStateException("Must have equal X and Y data points");
 
@@ -29,17 +29,17 @@ public class LinearRegressionCalculator {
                 .map(position -> Math.pow(position, 2))
                 .collect(Collectors.toList());
 
-        List<Double> xMultipliedByY = new ArrayList<>();
+        List<Integer> xMultipliedByY = new ArrayList<>();
         for (int i = 0; i < numberOfDataValues; i++) {
             xMultipliedByY.add(xList.get(i)*yList.get(i));
         }
 
-        Double xSummed = xList
+        Integer xSummed = xList
                 .stream()
                 .reduce((prev, next) -> prev + next)
                 .get();
 
-        Double ySummed = yList
+        Integer ySummed = yList
                 .stream()
                 .reduce((prev, next) -> prev + next)
                 .get();
@@ -49,7 +49,7 @@ public class LinearRegressionCalculator {
                 .reduce((prev, next) -> prev + next)
                 .get();
 
-        Double sumOfXMultipliedByY = xMultipliedByY
+        Integer sumOfXMultipliedByY = xMultipliedByY
                 .stream()
                 .reduce((prev, next) -> prev + next)
                 .get();

@@ -15,8 +15,8 @@ class LinearRegressionCalculatorShould {
     @BeforeEach
     void setUp() {
 
-        List<Double> xList = asList(2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 14.0);
-        List<Double> yList = asList(4.0, 5.0, 7.0, 10.0, 15.0, 20.0, 40.0);
+        List<Integer> xList = asList(2, 3, 5, 7, 9, 11, 14);
+        List<Integer> yList = asList(4, 5, 7, 10, 15, 20, 40);
         calculator = new LinearRegressionCalculator(xList, yList);
     }
 
