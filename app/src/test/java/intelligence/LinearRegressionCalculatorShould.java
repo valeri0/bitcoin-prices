@@ -22,7 +22,11 @@ class LinearRegressionCalculatorShould {
 
     @Test
     void predictValue() {
+
+        //execute
         double result = calculator.predictForValue(13);
+
+        //verify
         assertEquals(29, (int)result);
     }
 }
